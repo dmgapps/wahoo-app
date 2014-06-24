@@ -1,0 +1,1073 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="stylesheet" type="text/css" href="css/jquery.mobile.squareui.css" />
+  <link rel="stylesheet"  href="css/query.ui.datepicker.mobile.css" /> 
+
+  <!--
+  <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+  <script src="http://code.jquery.com/mobile/1.4.0/jquery.mobile-1.4.0.min.js"></script>
+  -->
+  <script type="text/javascript">
+  var appid = 147;
+  //var appid = 144;
+  var siteUrl = "http://dmgdemos.com/myfamilyapp/authorized/app/";
+  </script>
+
+  <script type="text/javascript" src="phonegap.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/javascript">
+      app.initialize();
+  </script>
+  <script src="js/jquery.min.js"></script>
+  <script src="js/jquery.mobile-1.4.0.min.js"></script>
+
+
+  <!-- layout code -->
+
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="./css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="./css/statusbox.css">
+
+  <!--[if IE 7]>
+  <link rel="stylesheet" href="css/font-awesome-ie7.css"><![endif]-->
+  <link type="text/css" rel="stylesheet" href="./css/tweetfeed.css">
+  <link type="text/css" rel="stylesheet" href="./css/comment_boxes.css" />
+
+  <link href="css/framework-gallery.css"       rel="stylesheet"  type="text/css">
+  <link href="css/icons.css"       rel="stylesheet"  type="text/css">
+  <link href="css/retina.css"        rel="stylesheet"  type="text/css"   media="only screen and (-webkit-min-device-pixel-ratio: 2)" />
+
+<script src="js/swipe.js"      type="text/javascript"></script>
+<script src="js/klass.min.js"    type="text/javascript"></script>
+<script src="js/photoswipe.js"   type="text/javascript"></script>
+<script src="js/jQuery.ui.datepicker.js"></script>
+<script src="js/jquery.ui.datepicker.mobile.js"></script>
+
+
+
+  <!-- PhotoSwipe -->
+
+ <!--
+  <script type="text/javascript" src="app/photoswipe/lib/simple-inheritance.min.js"></script>
+  <script type="text/javascript" src="app/photoswipe/code-photoswipe-1.0.11.js"></script>
+  <script type="text/javascript" src="app/photoswipe/code-photoswipe-jQuery-1.0.11.js"></script>
+-->
+  
+
+  <!-- Photoswipe 2 -->
+<!--
+  <script type="text/javascript" src="app/photoswipe2/Photoswipe/klass.min.js"></script>
+  <script type="text/javascript" src="app/photoswipe2/Photoswipe/code.photoswipe.jquery-3.0.4.min.js"></script>
+  <link href="app/photoswipe2/Photoswipe/photoswipe.css" type="text/css" rel="stylesheet" />
+
+  <script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+  <script type="text/javascript" src="http://code.jquery.com/mobile/1.0rc2/jquery.mobile-1.0rc2.min.js"></script>
+-->
+
+
+
+  <!-- Gallery -->
+  <!--
+  <script src="app/wwtest/jqtouch/jqtouch.min.js" type="application/x-javascript" charset="utf-8"></script>
+  <script src="app/wwtest/jquery.gallery.js" type="application/x-javascript" charset="utf-8"></script>
+-->
+
+
+
+  <script src="js/main.js"></script>
+  <script id="panel-init">
+
+      /*
+      $(function() {
+        $( "body>[data-role='panel']" ).panel();
+      });
+      */
+
+    </script>
+
+<style type="text/css">
+
+  .center-wrapper{
+  text-align: center;
+  margin: 0 auto;
+  }
+  .center-wrapper * {
+  margin: 0 auto;
+  }
+
+  .container {
+    width: 100%;
+    height:100%;
+  }
+
+  /* Image stuff */
+
+  .imageWrap{
+      margin-left: calc((500px - 100%) *-(.75)); /*ensure that the width value is followed by px*/
+  }
+
+  .container{
+      width: 100%; /* or any percentage of the page width */
+      overflow: hidden;
+      max-width: 500px;
+  }
+
+
+
+</style>
+
+</head>
+<body>
+
+  
+  <!--
+
+==============
+
+    Login
+
+==============
+
+-->
+
+
+  <div data-role="page" id="Login">
+
+    
+
+    <div data-role="header" data-position="fixed">
+      <a data-iconpos="notext" data-role="button" data-icon="home" title="Home">Home</a>
+      <h1></h1>
+      <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+    </div>
+
+    <div data-role="content" role="main" >
+      <center><h3>Enter Circle Password</h3></center>
+      <input type="text" id="LoginInputText" placeholder="" />
+      
+      <fieldset class="ui-grid-solo">
+      <div class="ui-block-a"><a id="loginButton" onclick="javascript:checkLogin();" data-role="button" data-icon="flat-man" data-transition="flow" data-theme="a">Login</a></div>
+      <div id="LoginPopup" data-role="popup" data-theme="e" data-overlay-theme="a" data-transition="slideup" class="ui-content">
+       Login Incorrect
+      </div>
+      </fieldset>
+
+    </div>
+
+
+    <!--
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="gear" class="ui-btn-active ui-state-persist">Button 1</a></li>
+          <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="refresh">Button 2</a></li>
+          <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="check">Button 3</a></li>
+        </ul>
+      </div>
+    </div>
+  -->
+
+    <div id="overlay" data-role="popup" data-overlay-theme="a" class="ui-content">
+      <p>You Must First Login</p>
+    </div>
+
+
+  </div>
+  <!-- End Login -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+=================
+    
+      Home 
+
+==================
+-->
+
+
+  <div data-role="page" id="Home">
+
+    <div data-role="header" data-position="fixed">
+      <a href="#Login" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Back</a>
+      <h1></h1>
+      <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu">Back</a>
+    </div>
+
+    
+    <div data-role="content" role="main">
+
+      <div id="name"></div>
+ 
+
+      
+      
+      <div id="home-content">
+              
+      
+      
+      </div>
+
+     
+
+
+            <img id="myImage" src="" />
+
+            <div id="cameraError"> </div>
+
+
+    </div> <!-- end of content -->
+
+
+    <!-- Footer -->
+    <div data-role="footer" data-position="fixed">
+      <div data-role="navbar">
+        <ul>
+          <li><a onclick="javascript:contactButtonClick();" data-rel="popup" data-transition="slideup"  data-icon="gear" >Invite Contacts</a></li>
+          <!--<li><a data-rel="popup" data-transition="slideup"  data-icon="refresh">Create New</a></li>-->
+          <li><a href="#popupMenu" data-rel="popup" data-role="button" data-icon="refresh" data-inline="true">Create New</a></li>
+          <!--<li><a data-rel="popup" data-transition="slideup"  data-icon="check">Settings</a></li>-->
+          <li><a href="javascript:showCreateNewPhotoCategory();">Form</a></li>
+        </ul>
+      </div>
+
+      <!-- CREATE NEW MENU -->
+      <div data-role="popup" id="popupMenu" data-theme="a">
+              <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+                <li data-role="divider" data-theme="a">Create New...</li>
+                <li><a href="javascript:showCreateNewPhotoCategory();" >Photo Category</a></li>
+                <li><a href="javascript:showCreateNewEvent();">Event</a></li>
+              </ul>
+      </div>
+
+
+      <!-- New Photo Category -->
+      <div data-role="popup" id="createNewPhoto" data-theme="a" class="ui-corner-all">
+            <form>
+              <div style="padding:10px 20px;">
+                <h3>Please sign in</h3>
+                    <label for="un" class="ui-hidden-accessible">Username:</label>
+                    <input type="text" name="user" id="un" value="" placeholder="username" data-theme="a" />
+
+                    <label for="pw" class="ui-hidden-accessible">Password:</label>
+                    <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a" />
+
+                  <button type="submit" data-theme="b">Sign in</button>
+              </div>
+            </form>
+      </div>
+
+      
+
+    </div>
+
+  </div>
+
+  <!-- End of Home -->
+
+
+
+    <!--
+
+  ==============
+
+      Timeline Event Comments
+
+  ==============
+
+  -->
+
+
+    <div data-role="page" id="EventTabComments">
+
+      
+
+      <div data-role="header" data-position="fixed">
+        <a href="#EventTimeline" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Back</a>
+        <h1>
+
+            <a href="#popupCommentBox" data-rel="popup" data-position-to="window" class="ui-btn ui-corner-all ui-shadow ui-btn-inline ui-icon-grid ui-btn-icon-left ui-btn-a" data-transition="pop">Comment</a>
+            <div data-role="popup" id="popupCommentBox" data-theme="a" class="ui-corner-all">
+
+                    <div style="padding:10px 20px;">
+                        <h3>Leave Comment</h3>
+                        <input type="text" name="comment" id="timeline-event-comment" value="" placeholder="" data-theme="a">
+                        <button  onclick="writeEventTimelineComment();" class="ui-btn ui-corner-all ui-shadow ui-btn-b ui-btn-icon-left ui-icon-check">Comment</button>
+                    </div>
+                
+            </div>
+
+        </h1>
+      </div>
+
+      <div data-role="content" role="main" id="eventTabCommentsContent" >
+        
+      <div class="container">
+        
+          <img class="imageWrap" id="eventTabCommentsPicture" src="../../uploaded/___default.png"><img>  
+          <div id="eventTabCommentsContent"></div>
+
+      </div>
+
+      <hr>
+
+      <!-- DC Comment Boxes Start -->
+          <center>
+            <div class="tsc_clean_comment">
+              <div class="avatar_box"> <img src="http://pimg.co/p/52x52" alt="Avatar" class="avatar" />
+                <p class="username">fgdfgdfgdfgfgdfgdfgdfgfgdfgdfgdfgfgdfgdfgdfgfgdfgdfgdfgfgdfgdfgdfg</p>
+              </div>
+              <div class="comment_box fr">
+                <p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>
+                <a href="#" class="reply">Reply</a> <span class="date">1st January 2020</span> </div>
+              <div class="tsc_clear"></div>
+            </div>
+          <!-- DC Comment Boxes End -->
+
+            <div class="tsc_clean_comment">
+              <div class="avatar_box"> 
+                <img src="http://pimg.co/p/52x52" alt="Avatar" class="avatar" />
+                <p class="username">Brandon James Neff</p>
+              </div>
+              <div class="comment_box fr">
+                <p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>
+                <a href="#" class="reply">Reply</a> <span class="date">1st January 2020</span> </div>
+              <div class="tsc_clear"></div>
+            </div>
+          <!-- DC Comment Boxes End -->
+
+            <div class="tsc_clean_comment">
+              <div class="avatar_box"> <img src="http://pimg.co/p/52x52" alt="Avatar" class="avatar" />
+                <p class="username">fgdfgdfgdfgfgdfgdfgdfgf gdfgdfgdfgfg dfgdfgdfgfgdfgdfgdfg</p>
+              </div>
+              <div class="comment_box fr">
+                <p class="comment_paragraph" contenteditable="true">This field is completely editable. To disable this feature remove the "contenteditable=true" tag from this code.</p>
+                <a href="#" class="reply">Reply</a> <span class="date">1st January 2020</span> </div>
+              <div class="tsc_clear"></div>
+            </div>
+          <!-- DC Comment Boxes End -->
+    </center>
+
+  </div>
+
+    </div>
+    <!-- Timeline event comments -->
+
+
+
+<!--
+
+=======================
+
+  CREATE NEW TEXT POST
+
+======================
+
+
+-->
+
+
+
+  <div data-role="page" id="createTextPost">
+
+    
+
+    <div data-role="header" data-position="fixed">
+      <a data-role="button" data-icon="home" title="Home">Back</a>
+      <h1></h1>
+      <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+    </div>
+
+    <div data-role="content" role="main" >
+      <center>
+        <h3>Create New Text Post</h3>
+
+
+          <div data-role="fieldcontain">
+            <textarea name="textarea" id="event-text-box"></textarea>
+          </div>
+
+
+          <!--
+          <label for="pw" class="ui-hidden-accessible">Password:</label>
+          <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a" />
+          -->
+
+        <button onclick="javascript:createTextPost();" data-theme="b">Create</button>
+        <input type="hidden" id="text-event-tab-id" name="textPostTabId" value="">
+
+
+
+
+      </center>
+      
+    </div>
+
+
+  </div>
+  <!-- End create new text post-->
+
+
+
+
+
+<!--
+=============================
+
+    Events Timeline Page
+
+============================
+-->
+
+<div data-role="page" id="EventTimeline">
+
+  
+
+  <div data-role="header" data-position="fixed">
+    <a  href="#Home" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Back</a>
+    <h1>
+        <a href="#newPost" data-rel="popup" data-role="button" data-icon="grid" data-inline="true">New Post</a>
+        
+        <div data-role="popup" id="newPost" data-theme="a">
+                <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+                  <li data-role="divider" data-theme="a">Method</li>
+                  <li><a href="javascript:takePicture();">Take New Picture</a></li>
+                  <li><a href="#createTextPost">Create Text Post</a></li>
+                </ul>
+        </div>
+
+        <!--<a href="#popupBasic" data-rel="popup" class="ui-btn ui-corner-all ui-shadow ui-btn-inline" data-transition="pop">Basic Popup</a>-->
+        <div data-role="popup" id="popupBasic">
+        <p>This is a completely basic popup, no options set.</p>
+        </div>
+
+        
+        <input type="hidden" id="event_tab_id" name="event_tab_id" value="">
+      
+
+    </h1>
+
+    <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+  </div>
+
+  <div data-role="content" role="main" id="eventsTimelineContent" >
+
+  
+    <!--<div id="container" class="well">-->
+      <!--<div id="tweetfeed-container" data-widget-id="302938351818907648">-->
+        <div class="tweetfeed-list-container-wrapper" >
+    <div class="tweetfeed-list-container">
+      <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/LifeCheates" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/378800000598367776/b48e14c5346029f764276b46bfe07b30_normal.png);">
+        </div>
+      </div>
+    </a>
+    <a href="http://www.twitter.com/LifeCheates/status/466280578841849856" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280578841849856" data-username="LifeCheates">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <!--<span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>LifeCheates</span>-->
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content"><br /><br />Need some free WiFi? The best places to go are Panera, McDonalds, Apple Store, Office Depot, Staples, &amp; Courtyard Marriott.
+
+            <img src="http://i.imgur.com/1WHX5fo.png" />
+
+          </div>
+        </div>
+    </div>
+    </a>
+  </div>
+
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/LittleMix" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/461187344456896512/p7mWVcKC_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+    <a href="http://www.twitter.com/LittleMix/status/466280526291017728" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280526291017728" data-username="LittleMix">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>LittleMix</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">These #SaluteArmy's are amazing, there's heaps of you out there! Keep preordering :)  http://smarturl.it/SaluteSingleBundle&nbsp;… xxjadexx
+  http://www.little-mix.com/gb/news/2014-05-13/salute-mini-challenge-salutearmy&nbsp;…</div>
+        </div>
+    </div>
+    </a>
+  </div>
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.</div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.
+
+
+
+          </div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.
+
+
+
+          </div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.
+
+
+
+          </div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.
+
+
+
+          </div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+
+  <div class="tweetfeed-item-container tweetfeed-non-fixed">
+    <div class="tweetfeed-time-bar"></div>
+    <a href="http://www.twitter.com/HayQueSaberlo" rel="nofollow" target="_blank">
+      <div class="tweetfeed-author-container">
+        <div class="tweetfeed-author-img-container" style="background-image: url(https://pbs.twimg.com/profile_images/443638101114507264/xeQVkDfv_normal.jpeg);">
+        </div>
+      </div>
+    </a>
+
+    <a href="http://www.twitter.com/HayQueSaberlo/status/466280517072330752" target="_blank">
+    <div class="tweetfeed-item-content-container tweetfeed-unbound" data-item-id="466280517072330752" data-username="HayQueSaberlo">
+        <div class="tweetfeed-triangle-background"></div>
+        <div class="tweetfeed-triangle"></div>
+        <div class="tweetfeed-author-name-container">
+          <span class="tweetfeed-author-name"><span class="tweetfeed-at-sign">@</span>HayQueSaberlo</span>
+        </div>
+        <div class="tweetfeed-date-container">
+          <span class="tweetfeed-day-of-month">13</span>
+          <span class="tweetfeed-month">may</span>
+          <span class="tweetfeed-day">tues</span>
+        </div>
+        <div class="tweetfeed-item-content">
+          <div class="tweetfeed-tweet-content">Una resonancia magnética demostró que la marca Apple estimula en sus usuarios las mismas regiones cerebrales que estimula la fe religiosa.
+
+
+
+          </div>
+        </div>
+    </div>
+    </a>
+
+  </div>
+
+
+
+
+
+  <!-- closing div tags -->
+    </div>
+  </div>
+  <!--</div>-->
+<!--</div>-->
+
+
+  </div>
+
+
+  <!--
+  <div data-role="footer" data-position="fixed">
+    <div data-role="navbar">
+      <ul>
+        <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="gear" class="ui-btn-active ui-state-persist">Button 1</a></li>
+        <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="refresh">Button 2</a></li>
+        <li><a data-rel="popup" data-transition="slideup" href="#overlay" data-icon="check">Button 3</a></li>
+      </ul>
+    </div>
+  </div>
+-->
+
+  <div id="overlay" data-role="popup" data-overlay-theme="a" class="ui-content">
+    <p>You Must First Login</p>
+  </div>
+
+
+</div>
+
+
+
+
+<!-- END OF EVENTS TIMELINE -->
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+  ======================
+
+  Create New Category Page
+
+  ======================
+  -->
+<div data-role="page" id="createNewPhotoCategory">
+
+      
+
+      <div data-role="header" data-position="fixed">
+        <a data-iconpos="notext" href="#Home" onclick="javascript:clearEventHtml();" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Home</a>
+        <h1></h1>
+        <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+      </div>
+
+      <div data-role="content" role="main"  >
+
+        
+              
+                <div style="padding:10px 20px;">
+                  <h3>Create New Photo Category</h3>
+
+                      <div data-role="fieldcontain">
+                        <label for="categoryName">Category Name:</label>
+                        <input type="text" name="user" id="categoryName" value="" placeholder="Category Name" data-theme="a" />
+                      </div>
+
+
+                      <!--
+                      <label for="pw" class="ui-hidden-accessible">Password:</label>
+                      <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a" />
+                      -->
+
+                    <button type="submit" data-theme="b">Create</button>
+                </div>
+              
+        
+        
+
+      </div>
+
+
+  </div>  
+  <!-- end of create category -->
+
+
+
+
+    <!--
+  ======================
+
+    Create New Event
+
+    ======================
+    -->
+  <div data-role="page" id="createNewEvent">
+
+        
+
+        <div data-role="header" data-position="fixed">
+          <a data-iconpos="notext" href="#Home" onclick="javascript:clearEventHtml();" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Home</a>
+          <h1></h1>
+          <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+        </div>
+
+        <div data-role="content" role="main"  >
+
+          
+                
+                  <div style="padding:10px 20px;">
+                    <h3>Create New Event/Announcement</h3>
+
+                        <div data-role="fieldcontain">
+                          <label for="title">Title:</label>
+                          <input type="text" name="user" id="eventTitle" value="" placeholder="title" data-theme="a" />
+                        </div>
+
+                        <div data-role="fieldcontain">
+                              <label for="date">Date Input:</label>
+                              <input type="date" name="date" id="eventDate" value=""  />
+                        </div>
+
+                        <div data-role="fieldcontain">
+                          <label for="details">Details:</label>
+                          <textarea name="textarea" id="eventDetails"></textarea>
+                        </div>
+
+
+                        <!--
+                        <label for="pw" class="ui-hidden-accessible">Password:</label>
+                        <input type="password" name="pass" id="pw" value="" placeholder="password" data-theme="a" />
+                        -->
+
+                      <button onclick="javascript:createEventClick();" data-theme="b">Create</button>
+                  </div>
+
+        </div>
+
+
+    </div>  
+    <!-- end of create event -->
+
+
+
+
+
+  <!-- 
+
+  ================
+
+    Invite Contacts Page
+
+  ================
+
+  -->
+    <div data-role="page" id="Contacts">
+
+      
+
+      <div data-role="header" data-position="fixed">
+        <a data-iconpos="notext" href="#Home" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Home</a>
+        <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+      </div>
+
+      <div data-role="content" role="main" id="contacts-content" >
+
+        
+        
+        
+      </div>
+
+
+
+      <!--
+      <div data-role="footer" data-position="fixed">
+
+      </div>
+    -->
+
+    </div>
+
+<!-- End of Invite Contacts Page -->
+
+
+
+
+
+<!-- 
+
+================
+
+  Photos Page 
+
+================
+
+-->
+  <div data-role="page" id="Photo">
+
+    
+
+    <div data-role="header" data-position="fixed">
+      <a data-iconpos="notext" href="#Home" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Home</a>
+      <h1>
+        <!--
+        <a data-iconpos="notext" onclick="javascript:takePicture();" data-transition="flow" data-role="button" data-icon="flat-camera" title="Picture"></a>
+      -->
+
+      <!--
+      <a href="#"><font color="white">Upload Photo</font></a>
+    -->
+    <a href="#uploadPhoto" data-rel="popup" data-role="button" data-icon="grid" data-inline="true">Upload Photo</a>
+    <div data-role="popup" id="uploadPhoto" data-theme="a">
+            <ul data-role="listview" data-inset="true" style="min-width:210px;" data-theme="b">
+              <li data-role="divider" data-theme="a">Method</li>
+              <li><a href="javascript:takePicture();">Take New Picture</a></li>
+              <li><a href="events.html">Choose From Album</a></li>
+            </ul>
+    </div>
+
+
+
+      </h1>
+      <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+    </div>
+
+    <div data-role="content" role="main" id="photo-content" >
+
+      <ul id="gallery" class="gallery">
+
+
+      </ul>
+      
+    </div>
+
+
+
+    <div data-role="footer" data-position="fixed">
+
+    </div>
+
+  </div>  
+
+  <!-- End of Photo Page -->
+
+
+
+<!-- 
+
+===============
+
+  Events Page 
+
+===============
+
+-->
+    <div data-role="page" id="Events">
+
+      
+
+      <div data-role="header" data-position="fixed">
+        <a data-iconpos="notext" href="#Home" onclick="javascript:clearEventHtml();" data-transition="flow" data-role="button" data-icon="arrow-l" title="Home">Home</a>
+        <h1></h1>
+        <a data-iconpos="notext" href="#panel" data-role="button" data-icon="flat-menu"></a>
+      </div>
+
+      <div data-role="content" role="main" id="event-content" >
+
+        
+        
+
+      </div>
+
+
+
+      <div data-role="footer" data-position="fixed">
+
+      </div>
+
+      <!-- Popups -->
+      <div id="eventsOverlay" data-role="popup" data-theme="e" data-overlay-theme="a" data-transition="slideup" class="ui-content">
+        <div id="eventsOverlayContent">
+          Login Incorrect
+        </div>
+      </div>
+
+  </div>  
+<!-- End of Events Page -->
+
+ 
+
+
+
+
+
+<!-- 
+  
+===================
+
+      panel
+
+===================
+
+-->
+
+<!--
+      <div data-role="panel" id="panel" data-position="right" data-display="push" data-theme="b">
+
+            <h3>Main Menu</h3>
+
+            <div data-role="fieldcontain">
+              <div data-role="controlgroup" data-type="vertical">
+                <a href="#Home" data-rel="grid" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a><a href="#Home" data-rel="grid" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a><a href="#Home" data-rel="grid" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+              </div>
+            </div>
+
+
+            <p>This panel is positioned on the right with the overlay display mode. The panel markup is <em>after</em> the header, content and footer in the source order.</p>
+            <p>To close, click off the panel, swipe left or right, hit the Esc key, or use the button below:</p>
+            <a href="#Home" data-rel="close" class="ui-btn ui-shadow ui-corner-all ui-btn-a ui-icon-delete ui-btn-icon-left ui-btn-inline">Close panel</a>
+
+      </div>
+-->
+<!-- end of panel -->
+
+
+
+
+  <div id="highlight"> </div>
+  <div class="ui-loader-background"> </div>
+</body>
+</html>
